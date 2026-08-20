@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UMB Fried Chicken | Crispy Fried Chicken in Egypt</title>
+<meta name="description" content="UMB Fried Chicken — crispy, juicy fried chicken, smash burgers & sandwiches in Alexandria, Egypt. Rated 4.3★ with 400+ reviews. Find your nearest UMB branch.">
+<meta name="keywords" content="UMB Fried Chicken, fried chicken Alexandria, fried chicken Egypt, Borg El Arab restaurant, smash burger Egypt">
+<meta property="og:title" content="UMB Fried Chicken | Crispy. Juicy. Unforgettable.">
+<meta property="og:description" content="Official site of UMB Fried Chicken — official menu, branches and locations across Alexandria, Egypt.">
+<meta property="og:type" content="restaurant.menu">
+<meta property="og:image" content="./assets/logo.png">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="./assets/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&family=Cairo:wght@500;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "UMB Fried Chicken",
+  "servesCuisine": "Fried Chicken, Fast Food, Sandwiches",
+  "image": "./assets/logo.png",
+  "telephone": "+20221294394", 
+  "priceRange": "E£1-200",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Borg El Arab",
+    "addressRegion": "Alexandria",
+    "addressCountry": "EG"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.3",
+    "reviewCount": "400"
+  }
+}
+</script>
+
+<style>
+  /* =========================================================
+     TOKENS — pegboard menu-board identity
+     Yellow + cream + white, dark brown ink. No red.
+     ========================================================= */
+  :root{
+    --cream:#fffdf6;
+    --white:#ffffff;
+    --yellow:#ffc22e;
+    --yellow-deep:#f2a300;
+    --yellow-dark:#c9820a;
+    --yellow-pale:#ffedb8;
+    --brown:#2a1b0e;
+    --brown-2:#3a2614;
+    --brown-soft:#6b5a46;
+    --brown-line:rgba(42,27,14,.14);
+    --shadow-soft: 0 22px 48px -22px rgba(42,27,14,.4);
+    --ease: cubic-bezier(.22,1,.36,1);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--brown);
+    font-family:'Manrope', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Lilita One', 'Cairo', sans-serif;
+    margin:0;
+    letter-spacing:.3px;
+    font-weight:400;
+  }
+  .ar{ font-family:'Cairo','Manrope',sans-serif; }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  button{ font-family:inherit; cursor:pointer; }
+  section{ position:relative; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 22px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  ::selection{ background:var(--brown); color:var(--yellow); }
+  :focus-visible{ outline:3px solid var(--brown); outline-offset:3px; border-radius:6px; }
+
+  /* ---------- pegboard motif (the signature texture) ---------- */
+  .pegboard{
+    position:absolute; inset:0; pointer-events:none;
+    background-image: radial-gradient(circle, var(--peg-dot, rgba(42,27,14,.16)) 1.6px, transparent 1.7px);
+    background-size:26px 26px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at var(--px,50%) var(--py,30%), black 0%, black 30%, transparent 72%);
+    mask-image: radial-gradient(ellipse 70% 60% at var(--px,50%) var(--py,30%), black 0%, black 30%, transparent 72%);
+  }
+  .pegboard.on-dark{ --peg-dot: rgba(255,194,46,.22); }
+
+  /* ---------- perforated / ticket edge ---------- */
+  .ticket-divider{
+    height:26px;
+    background-image: radial-gradient(circle 7px at 16px 0, transparent 15px, var(--cream) 16px);
+    background-size:32px 26px;
+    background-repeat:repeat-x;
+  }
+  .ticket-divider.on-brown{ background-image: radial-gradient(circle 7px at 16px 0, transparent 15px, var(--brown) 16px); }
+  .ticket-divider.on-pale{ background-image: radial-gradient(circle 7px at 16px 0, transparent 15px, var(--yellow-pale) 16px); }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--brown);
+    color:var(--yellow);
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+    padding:7px 16px 7px 12px;
+    border-radius:6px;
+  }
+  .eyebrow svg{ width:14px; height:14px; flex-shrink:0; }
+  .eyebrow.on-brown-bg{ background:var(--yellow); color:var(--brown); }
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(42,27,14,.86);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom:2px solid var(--yellow);
+    transition:padding .35s var(--ease), background .35s var(--ease);
+  }
+  .nav-inner{
+    max-width:1180px; margin:0 auto; padding:16px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    transition:padding .35s var(--ease);
+  }
+  header.scrolled .nav-inner{ padding:10px 22px; }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand img{ width:42px; height:42px; border-radius:10px; transition:width .3s,height .3s; }
+  header.scrolled .brand img{ width:34px; height:34px; }
+  .brand span{ font-family:'Lilita One',sans-serif; color:var(--cream); font-size:19px; letter-spacing:.3px; }
+  .brand span em{ font-style:normal; color:var(--yellow); }
+
+  nav.links{ display:flex; align-items:center; gap:30px; }
+  nav.links a{
+    color:var(--yellow-pale); font-weight:700; font-size:14px; position:relative; padding:4px 2px;
+    text-transform:uppercase; letter-spacing:.6px;
+  }
+  nav.links a::after{
+    content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--yellow);
+    transition:width .3s var(--ease);
+  }
+  nav.links a:hover::after{ width:100%; }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    font-weight:800; font-size:14.5px; padding:13px 26px; border-radius:10px; border:2px solid transparent;
+    transition:transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
+  }
+  .btn-primary{
+    background:var(--yellow);
+    color:var(--brown);
+    box-shadow:0 4px 0 0 var(--yellow-dark);
+  }
+  .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 7px 0 0 var(--yellow-dark); }
+  .btn-primary:active{ transform:translateY(1px); box-shadow:0 2px 0 0 var(--yellow-dark); }
+  .btn-outline{
+    background:transparent; color:var(--cream); border-color:rgba(255,253,246,.4);
+  }
+  .btn-outline:hover{ border-color:var(--yellow); color:var(--yellow); }
+  .btn-dark{
+    background:var(--brown); color:var(--yellow); box-shadow:0 4px 0 0 #1a1108;
+  }
+  .btn-dark:hover{ transform:translateY(-3px); box-shadow:0 7px 0 0 #1a1108; }
+  .btn-dark:active{ transform:translateY(1px); box-shadow:0 2px 0 0 #1a1108; }
+  .btn-ghost-dark{ background:transparent; color:var(--brown); border-color:var(--brown-line); }
+  .btn-ghost-dark:hover{ border-color:var(--brown); background:rgba(42,27,14,.05); }
+  .btn-sm{ padding:10px 18px; font-size:13px; border-radius:8px; }
+  .btn[disabled]{ opacity:.55; cursor:not-allowed; box-shadow:none !important; transform:none !important; }
+
+  .burger-btn{
+    display:none; width:42px; height:42px; border-radius:8px; border:2px solid var(--yellow);
+    background:rgba(255,194,46,.08); align-items:center; justify-content:center; flex-direction:column; gap:4px;
+  }
+  .burger-btn span{ width:19px; height:2px; background:var(--yellow); border-radius:2px; transition:.3s; }
+  .burger-btn.open span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+  .burger-btn.open span:nth-child(2){ opacity:0; }
+  .burger-btn.open span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+  .mobile-panel{
+    max-height:0; overflow:hidden; background:var(--brown);
+    transition:max-height .4s var(--ease);
+    border-top:2px solid var(--yellow);
+  }
+  .mobile-panel.open{ max-height:460px; }
+  .mobile-panel .wrap{ padding:18px 22px 26px; display:flex; flex-direction:column; gap:4px; }
+  .mobile-panel a{ color:var(--yellow-pale); font-weight:700; padding:12px 4px; border-bottom:1px solid rgba(255,194,46,.14); font-size:15px; text-transform:uppercase; letter-spacing:.5px; }
+  .mobile-panel .btn{ margin-top:14px; align-self:flex-start; }
+
+  /* ---------- lang switch ---------- */
+  .lang-btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:6px;
+    width:auto; height:38px; padding:0 12px; border-radius:8px;
+    border:2px solid var(--yellow); background:rgba(255,194,46,.08); color:var(--yellow);
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12.5px; letter-spacing:.5px;
+    transition:background .25s, transform .25s;
+  }
+  .lang-btn:hover{ background:rgba(255,194,46,.18); transform:translateY(-2px); }
+  .lang-btn svg{ width:15px; height:15px; flex-shrink:0; }
+  .mobile-panel .lang-btn{ align-self:flex-start; margin-top:10px; background:rgba(255,194,46,.12); }
+
+  /* ---------- hero — the backlit sign ---------- */
+  .hero{
+    min-height:100svh;
+    background:
+      radial-gradient(ellipse 70% 55% at 74% 18%, rgba(255,194,46,.16), transparent 60%),
+      var(--brown);
+    color:var(--cream); position:relative; overflow:hidden;
+    display:flex; align-items:center;
+    padding:130px 0 70px;
+  }
+  .hero .pegboard{ --px:78%; --py:22%; opacity:.6; }
+  .hero-grid{
+    position:relative; z-index:2; display:grid; grid-template-columns:1.05fr .95fr; gap:40px; align-items:center;
+  }
+  .hero-eyebrow{ margin-bottom:22px; }
+  .hero h1{
+    font-size:clamp(46px,7vw,80px); line-height:.92; color:var(--yellow);
+    text-shadow: 0 0 2px rgba(255,194,46,.5), 0 0 40px rgba(255,194,46,.35), 3px 4px 0 rgba(0,0,0,.35);
+  }
+  .hero h1 .accent{ color:var(--cream); display:block; -webkit-text-stroke:0; text-shadow:3px 4px 0 rgba(0,0,0,.3); }
+  .hero .tagline{
+    margin-top:24px; font-size:clamp(19px,2.4vw,25px); font-weight:800; color:var(--cream);
+    font-family:'Lilita One',sans-serif;
+  }
+  .hero .tagline-ar{
+    margin-top:8px; font-size:18px; font-weight:700; color:var(--yellow-pale); opacity:.9;
+  }
+  .hero-ctas{ margin-top:38px; display:flex; gap:14px; flex-wrap:wrap; }
+  .hero-badges{ margin-top:46px; display:flex; gap:26px; flex-wrap:wrap; }
+  .hero-badge{ display:flex; align-items:center; gap:10px; color:var(--yellow-pale); font-size:12.5px; font-weight:600; font-family:'IBM Plex Mono',monospace; }
+  .hero-badge .dot{ width:8px; height:8px; border-radius:50%; background:var(--yellow); box-shadow:0 0 0 4px rgba(255,194,46,.18); }
+
+  .hero-visual{ position:relative; }
+  .hero-visual .frame{
+    position:relative; border-radius:0; overflow:visible; aspect-ratio:auto;
+    box-shadow:none;
+  }
+  .hero-visual img{ width:100%; height:100%; object-fit:cover; transform:scale(1.02); }
+  .hero-visual .glow{
+    position:absolute; inset:-40px; z-index:-1;
+    background:radial-gradient(circle, rgba(255,194,46,.4), transparent 65%);
+    filter:blur(10px);
+  }
+  .float-chip{
+    position:absolute; background:var(--yellow); color:var(--brown); border-radius:12px; padding:11px 15px;
+    box-shadow:0 14px 30px -10px rgba(0,0,0,.45); display:flex; align-items:center; gap:9px;
+    font-weight:800; font-size:13px; font-family:'IBM Plex Mono',monospace; animation:float 4.5s ease-in-out infinite;
+    border:2px solid var(--brown);
+  }
+  .float-chip svg{ width:18px; height:18px; color:var(--brown); flex-shrink:0; }
+  .chip-rating{ top:5%; left:-9%; }
+  .chip-crisp{ bottom:7%; right:-7%; animation-delay:1.2s; background:var(--brown); color:var(--yellow); border-color:var(--yellow); }
+  .chip-crisp svg{ color:var(--yellow); }
+  @keyframes float{ 0%,100%{ transform:translateY(0) rotate(-2deg);} 50%{ transform:translateY(-12px) rotate(1deg);} }
+
+  .scroll-cue{
+    position:absolute; bottom:26px; left:50%; transform:translateX(-50%); z-index:3;
+    display:flex; flex-direction:column; align-items:center; gap:6px; color:var(--yellow-pale);
+    font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-family:'IBM Plex Mono',monospace;
+  }
+  .scroll-cue .line{ width:1px; height:34px; background:linear-gradient(var(--yellow),transparent); animation:scrollcue 1.8s ease-in-out infinite; }
+  @keyframes scrollcue{ 0%{opacity:0; transform:scaleY(.3); transform-origin:top;} 40%{opacity:1; transform:scaleY(1); transform-origin:top;} 100%{opacity:0; transform:scaleY(1); transform-origin:bottom;} }
+
+  /* ---------- section heads ---------- */
+  .section-pad{ padding:96px 0; }
+  .section-head{ text-align:center; max-width:640px; margin:0 auto 52px; }
+  .section-head h2{ font-size:clamp(32px,4.4vw,50px); margin-top:16px; color:var(--brown); }
+  .section-head p{ margin-top:14px; color:var(--brown-soft); font-size:16px; line-height:1.6; }
+  .section-head.on-dark h2{ color:var(--yellow); }
+  .section-head.on-dark p{ color:var(--yellow-pale); opacity:.85; }
+
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- menu — literal menu board ---------- */
+  .menu-section{ background:var(--cream); }
+  .board{
+    background:var(--brown); border-radius:26px; padding:22px;
+    box-shadow:var(--shadow-soft);
+    position:relative;
+  }
+  .board::before, .board::after{
+    content:""; position:absolute; width:14px; height:14px; border-radius:50%; background:var(--yellow-dark);
+    box-shadow:inset 0 2px 3px rgba(0,0,0,.4);
+    top:18px;
+  }
+  .board::before{ left:18px; }
+  .board::after{ right:18px; }
+  .board-label{
+    display:flex; justify-content:space-between; align-items:center; padding:6px 10px 20px;
+    color:var(--yellow-pale); font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1px; text-transform:uppercase;
+  }
+  .menu-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; padding:0 4px 4px; }
+  .menu-card{
+    background:var(--cream); border-radius:16px; padding:12px; cursor:zoom-in; position:relative; overflow:hidden;
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+    border:3px solid var(--brown-2);
+  }
+  .menu-card:hover{ transform:translateY(-6px) rotate(-.4deg); box-shadow:0 20px 40px -16px rgba(0,0,0,.5); }
+  .menu-card img{ border-radius:9px; width:100%; height:auto; }
+  .menu-card .cap{
+    display:flex; align-items:center; justify-content:space-between; padding:14px 6px 4px;
+  }
+  .menu-card .cap b{ font-family:'Lilita One',sans-serif; font-size:15.5px; color:var(--brown); font-weight:400; }
+  .menu-card .zoom-hint{
+    display:flex; align-items:center; gap:6px; font-size:11px; font-weight:700; color:var(--yellow-dark);
+    text-transform:uppercase; letter-spacing:.5px; font-family:'IBM Plex Mono',monospace;
+  }
+  .menu-card .zoom-hint svg{ width:14px; height:14px; }
+  .menu-note{
+    margin-top:26px; text-align:center; font-size:13.5px; color:var(--brown-soft); max-width:560px; margin-inline:auto;
+  }
+
+  /* ---------- about ---------- */
+  .about-section{ background:var(--brown); color:var(--cream); overflow:hidden; }
+  .about-section .pegboard{ --px:12%; --py:80%; opacity:.5; }
+  .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; position:relative; z-index:1; }
+  .about-copy p{ margin-top:18px; color:var(--yellow-pale); opacity:.9; font-size:16.5px; line-height:1.75; max-width:480px; }
+  .stamp-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .stamp{
+    background:rgba(255,194,46,.06); border:2px dashed rgba(255,194,46,.5); border-radius:50%;
+    aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+    padding:18px; transition:transform .3s var(--ease), background .3s;
+  }
+  .stamp:nth-child(odd){ transform:rotate(-4deg); }
+  .stamp:nth-child(even){ transform:rotate(3deg); }
+  .stamp:hover{ transform:scale(1.06) rotate(0deg); background:rgba(255,194,46,.12); }
+  .stamp svg{ width:33px; height:33px; color:var(--yellow); margin-bottom:8px; }
+  .stamp b{ display:block; font-family:'Lilita One',sans-serif; font-size:20px; color:var(--cream); font-weight:400; line-height:1.2; }
+
+  /* ---------- locations ---------- */
+  .locations-section{ background:var(--yellow-pale); }
+  .branch-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .branch-card{
+    background:var(--cream); border-radius:18px; padding:0; box-shadow:var(--shadow-soft);
+    border:2.5px solid var(--brown); display:flex; flex-direction:column;
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease); overflow:hidden;
+  }
+  .branch-card:hover{ transform:translateY(-8px); box-shadow:0 30px 55px -22px rgba(42,27,14,.4); }
+  .branch-card.placeholder{ border-style:dashed; opacity:.85; }
+  .branch-stub{
+    background:var(--brown); color:var(--yellow); padding:12px 20px; display:flex; align-items:center; justify-content:space-between;
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.8px; text-transform:uppercase;
+  }
+  .branch-stub.tbd{ background:var(--brown-soft); }
+  .branch-body{ padding:20px 22px 24px; display:flex; flex-direction:column; gap:14px; }
+  .branch-top{ display:flex; align-items:center; gap:12px; }
+  .branch-icon{
+    width:44px; height:44px; border-radius:50%; background:var(--yellow);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; border:2px solid var(--brown);
+  }
+  .branch-icon svg{ width:20px; height:20px; color:var(--brown); }
+  .branch-card h3{ font-size:20px; color:var(--brown); font-weight:400; }
+  .branch-row{ display:flex; gap:10px; align-items:flex-start; font-size:14px; color:var(--brown-soft); line-height:1.5; }
+  .branch-row svg{ width:16px; height:16px; flex-shrink:0; margin-top:2px; color:var(--yellow-dark); }
+  .branch-card .btn{ margin-top:auto; }
+
+  .map-wrap{
+    margin-top:44px; border-radius:22px; overflow:hidden; box-shadow:var(--shadow-soft); border:2.5px solid var(--brown);
+    background:var(--cream);
+  }
+  .map-tabs{ display:flex; flex-wrap:wrap; gap:8px; padding:16px; background:var(--cream); border-bottom:2px solid var(--brown-line); }
+  .map-tab{
+    padding:9px 16px; border-radius:8px; font-size:13px; font-weight:700; background:var(--yellow-pale);
+    color:var(--brown-soft); border:1.5px solid transparent; transition:.25s; font-family:'IBM Plex Mono',monospace;
+  }
+  .map-tab.active{ background:var(--brown); color:var(--yellow); }
+  .map-frame-holder{ position:relative; aspect-ratio:16/7; background:var(--yellow-pale); }
+  .map-frame-holder iframe{ width:100%; height:100%; border:0; }
+  .map-frame-holder .map-empty{
+    position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+    color:var(--brown-soft); font-weight:600; font-size:14px; text-align:center; padding:20px;
+  }
+
+  /* ---------- gallery ---------- */
+  .gallery-section{ background:var(--cream); }
+  .gallery-top-row{ display:grid; grid-template-columns:1fr 1.6fr 1fr; gap:18px; margin-bottom:18px; }
+  .gallery-top-row .gallery-item{ margin-bottom:0; aspect-ratio:3/4; }
+  .gallery-top-row .gallery-video-slot{ aspect-ratio:3/2.5; }
+  .gallery-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .gallery-item{
+    margin-bottom:0; border-radius:16px; overflow:hidden; position:relative;
+    box-shadow:var(--shadow-soft); cursor:zoom-in; border:2.5px solid var(--brown);
+    aspect-ratio:1/1;
+  }
+  .gallery-item img, .gallery-item video{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s var(--ease); }
+  .gallery-item:hover img, .gallery-item:hover video{ transform:scale(1.08); }
+  .gallery-item .g-overlay{
+    position:absolute; inset:0; background:linear-gradient(to top, rgba(42,27,14,.82), transparent 55%);
+    opacity:0; transition:opacity .35s;
+    display:flex; align-items:flex-end; padding:16px; color:var(--yellow); font-weight:700; font-size:13px;
+    font-family:'IBM Plex Mono',monospace;
+  }
+  .gallery-item:hover .g-overlay{ opacity:1; }
+  .gallery-item.empty{
+    background:repeating-linear-gradient(135deg, var(--yellow-pale), var(--yellow-pale) 10px, var(--cream) 10px, var(--cream) 20px);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    color:var(--brown-soft); font-size:13px; font-weight:700; padding:16px; cursor:default;
+    border:2px dashed var(--brown-line);
+  }
+  .gallery-item.video-tile{ cursor:default; background:var(--brown); }
+  .gallery-item.video-tile .play-badge{
+    position:absolute; top:10px; right:10px; background:var(--yellow); color:var(--brown);
+    border-radius:20px; padding:5px 10px; font-size:10.5px; font-weight:800; font-family:'IBM Plex Mono',monospace;
+    display:flex; align-items:center; gap:5px; z-index:2;
+  }
+  .gallery-item.video-tile .play-badge svg{ width:11px; height:11px; }
+
+  /* ---------- info strip ---------- */
+  .info-section{ background:var(--brown); padding:52px 0; border-top:2px solid var(--yellow); border-bottom:2px solid var(--yellow); }
+  .info-strip{
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:26px;
+  }
+  .info-rating{ display:flex; align-items:center; gap:14px; }
+  .info-rating .stars{ display:flex; gap:2px; }
+  .info-rating svg{ width:20px; height:20px; color:var(--yellow); }
+  .info-rating .num{ font-family:'Lilita One',sans-serif; font-size:28px; color:var(--yellow); }
+  .info-rating .sub{ font-size:12px; color:var(--yellow-pale); opacity:.75; font-family:'IBM Plex Mono',monospace; }
+  .info-facts{ display:flex; flex-wrap:wrap; gap:34px; }
+  .info-fact{ display:flex; align-items:center; gap:10px; }
+  .info-fact svg{ width:19px; height:19px; color:var(--yellow); flex-shrink:0; }
+  .info-fact .k{ font-size:10.5px; text-transform:uppercase; letter-spacing:.6px; color:var(--yellow-pale); opacity:.65; font-family:'IBM Plex Mono',monospace; }
+  .info-fact .v{ font-size:14px; font-weight:700; color:var(--cream); }
+
+  /* ---------- contact ---------- */
+  .contact-section{ background:var(--yellow); color:var(--brown); overflow:hidden; }
+  .contact-section .pegboard{ --px:88%; --py:10%; --peg-dot: rgba(42,27,14,.14); opacity:.7; }
+  .contact-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center; position:relative; z-index:1; }
+  .contact-grid h2{ font-size:clamp(32px,4.4vw,48px); color:var(--brown); }
+  .contact-grid p{ margin-top:14px; color:var(--brown-2); font-size:16px; max-width:440px; }
+  .contact-phone{
+    display:flex; align-items:center; gap:16px; margin-top:30px; flex-wrap:wrap;
+  }
+  .contact-phone .num{ font-family:'Lilita One',sans-serif; font-size:clamp(26px,3.4vw,34px); }
+  .contact-card{
+    background:var(--cream); color:var(--brown); border-radius:20px; padding:30px; box-shadow:var(--shadow-soft);
+    border:2.5px solid var(--brown); position:relative;
+  }
+  .contact-card::before{
+    content:""; position:absolute; top:0; left:24px; right:24px; height:1px;
+    background-image:repeating-linear-gradient(90deg, var(--brown-line) 0 8px, transparent 8px 16px);
+  }
+  .contact-card .row{ display:flex; gap:14px; align-items:flex-start; padding:14px 0; border-bottom:1px dashed var(--brown-line); }
+  .contact-card .row:last-child{ border-bottom:none; }
+  .contact-card svg{ width:19px; height:19px; color:var(--yellow-dark); flex-shrink:0; margin-top:2px; }
+  .contact-card .k{ font-size:11px; text-transform:uppercase; letter-spacing:.5px; color:var(--brown-soft); font-weight:700; font-family:'IBM Plex Mono',monospace; }
+  .contact-card .v{ font-size:15px; font-weight:700; }
+
+  /* ---------- social row ---------- */
+  .social-row{ display:flex; align-items:center; gap:12px; margin-top:26px; }
+  .social-icon{
+    width:44px; height:44px; border-radius:50%; background:var(--brown); color:var(--yellow);
+    display:flex; align-items:center; justify-content:center; border:2px solid var(--brown);
+    transition:transform .25s var(--ease), background .25s var(--ease);
+  }
+  .social-icon svg{ width:20px; height:20px; }
+  .social-icon:hover{ transform:translateY(-3px); background:var(--brown-2); }
+  footer .social-row{ margin-top:16px; }
+  footer .social-icon{ background:rgba(255,194,46,.12); color:var(--yellow); border-color:rgba(255,194,46,.3); }
+  footer .social-icon:hover{ background:var(--yellow); color:var(--brown); }
+
+  /* ---------- footer ---------- */
+  footer{ background:var(--brown-2); color:var(--yellow-pale); padding:64px 0 26px; border-top:2px solid var(--yellow); }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr .8fr .8fr 1fr; gap:36px; }
+  .footer-brand{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .footer-brand img{ width:38px; height:38px; border-radius:9px; }
+  .footer-brand span{ font-family:'Lilita One',sans-serif; color:var(--yellow); font-size:18px; }
+  footer p.blurb{ font-size:14px; line-height:1.7; max-width:280px; opacity:.8; }
+  footer h4{ color:var(--yellow); font-family:'Lilita One',sans-serif; font-size:14px; margin-bottom:16px; font-weight:400; letter-spacing:.5px; }
+  footer ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px; }
+  footer ul a{ font-size:14px; transition:color .2s; opacity:.85; }
+  footer ul a:hover{ color:var(--yellow); opacity:1; }
+  .footer-bottom{
+    margin-top:52px; padding-top:22px; border-top:1px solid rgba(255,194,46,.14);
+    display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;
+    font-size:12px; color:var(--yellow-pale); opacity:.55; font-family:'IBM Plex Mono',monospace;
+  }
+
+  /* ---------- lightbox ---------- */
+  .lightbox{
+    position:fixed; inset:0; z-index:200; background:rgba(20,13,7,.94);
+    display:flex; align-items:center; justify-content:center; padding:30px;
+    opacity:0; pointer-events:none; transition:opacity .3s var(--ease);
+  }
+  .lightbox.open{ opacity:1; pointer-events:auto; }
+  .lightbox img, .lightbox video{ max-width:min(92vw,1100px); max-height:88vh; border-radius:12px; box-shadow:0 30px 70px rgba(0,0,0,.5); border:3px solid var(--yellow); }
+  .lightbox-close{
+    position:absolute; top:22px; right:26px; width:44px; height:44px; border-radius:50%; background:var(--yellow);
+    border:2px solid var(--brown); display:flex; align-items:center; justify-content:center;
+  }
+  .lightbox-close svg{ width:20px; height:20px; color:var(--brown); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    nav.links{ display:none; }
+    .burger-btn{ display:flex; }
+    .hero{ padding-top:110px; }
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-visual{ order:-1; max-width:320px; margin:0 auto; }
+    .hero-ctas, .hero-badges{ justify-content:center; }
+    .hero-badges{ display:none; }
+    .hero-ctas{ justify-content:flex-start; }
+    .hero .tagline, .hero .tagline-ar, .hero h1{ text-align:left; }
+    .menu-grid{ grid-template-columns:1fr; }
+    .about-grid{ grid-template-columns:1fr; gap:36px; }
+    .about-copy p{ max-width:none; }
+    .stamp-grid{ max-width:420px; margin:0 auto; }
+    .branch-grid{ grid-template-columns:1fr; }
+    .gallery-top-row{ grid-template-columns:1fr; }
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); }
+    .contact-grid{ grid-template-columns:1fr; }
+    .contact-card{ order:-1; }
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+    .info-strip{ flex-direction:column; align-items:flex-start; }
+  }
+  @media (max-width:560px){
+    .section-pad{ padding:68px 0; }
+    .wrap{ padding:0 18px; }
+    .hero-visual{ max-width:260px; }
+    .float-chip{ padding:9px 12px; font-size:11.5px; }
+    .chip-rating{ left:-4%; top:4%; }
+    .chip-crisp{ right:-4%; }
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); }
+    .footer-grid{ grid-template-columns:1fr 1fr; gap:28px; }
+    .info-facts{ gap:20px; }
+    .board{ padding:14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header id="siteHeader">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <img src="./assets/logo.png" alt="UMB Fried Chicken logo">
+      <span>UMB <em>Fried Chicken</em></span>
+    </a>
+    <nav class="links">
+      <a href="#home" data-i18n="nav_home">Home</a>
+      <a href="#menu" data-i18n="nav_menu">Menu</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#locations" data-i18n="nav_locations">Locations</a>
+      <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <button class="lang-btn" id="langBtnDesktop" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+        <span id="langBtnDesktopLabel">AR</span>
+      </button>
+      <a href="tel:0221294394" class="btn btn-primary btn-sm navMenuBtn" data-i18n="nav_order">Order</a>
+      <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-panel" id="mobilePanel">
+    <div class="wrap">
+      <a href="#home" data-i18n="nav_home">Home</a>
+      <a href="#menu" data-i18n="nav_menu">Menu</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#locations" data-i18n="nav_locations">Locations</a>
+      <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+      <a href="tel:0221294394" class="btn btn-primary" data-i18n="nav_order">Order</a>
+      <button class="lang-btn" id="langBtnMobile" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+        <span id="langBtnMobileLabel">AR</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="pegboard on-dark"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-eyebrow eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span data-i18n="hero_eyebrow">Alexandria, Egypt</span>
+      </span>
+      <h1>UMB<span class="accent" data-i18n="hero_h1_accent">FRIED CHICKEN</span></h1>
+      <p class="tagline" data-i18n="hero_tagline">Crispy. Juicy. Unforgettable.</p>
+      <p class="tagline-ar ar">قرمشة تستاهل التجربة 🍗🔥</p>
+      <div class="hero-ctas">
+        <a href="#menu" class="btn btn-primary">
+          <span data-i18n="hero_cta_menu">Menu</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        </a>
+        <a href="#locations" class="btn btn-outline" data-i18n="hero_cta_branch">Find a Branch</a>
+      </div>
+      <div class="hero-badges">
+        <div class="hero-badge"><span class="dot"></span> <span data-i18n="hero_badge_rating">4.3★ GOOGLE RATING</span></div>
+        <div class="hero-badge"><span class="dot"></span> <span data-i18n="hero_badge_reviews">400+ REVIEWS</span></div>
+        <div class="hero-badge"><span class="dot"></span> <span data-i18n="hero_badge_branches">3 BRANCHES IN ALEXANDRIA</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="glow"></div>
+      <div class="frame">
+        <img src="./assets/hero-burger.png" alt="UMB crispy fried chicken sandwich with cheese sauce, lettuce and mayo on a sesame bun">
+      </div>
+      <div class="float-chip chip-rating">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        4.3 · 400+
+      </div>
+      <div class="float-chip chip-crisp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 13c0-4 3-8 8-8s8 4 8 8-3 8-8 8-8-4-8-8z"/><path d="M9 12c1-1 2-1 3 0s2 1 3 0"/></svg>
+        <span data-i18n="hero_chip_crisp">Always Crispy</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span class="line"></span><span data-i18n="hero_scroll">Scroll</span></div>
+</section>
+
+<!-- ================= MENU ================= -->
+<section class="menu-section section-pad" id="menu">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow-light">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <span data-i18n="menu_eyebrow">Official Menu</span>
+      </span>
+      <h2 data-i18n="menu_h2">Our Menu</h2>
+      <p data-i18n="menu_p">The full, official UMB menu — straight from the restaurant. Tap either card to view it up close.</p>
+    </div>
+    <div class="board reveal">
+      <div class="board-label">
+        <span data-i18n="menu_board_label">UMB · MENU BOARD</span>
+        <span data-i18n="menu_board_prices">PRICES IN EGP</span>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-card" data-lightbox="./assets/menu-1.png">
+          <img src="./assets/menu-1.png" alt="UMB Fried Chicken menu — chicken sandwiches and wraps with prices" loading="lazy">
+          <div class="cap">
+            <b data-i18n="menu_card1">Chicken Sandwiches & Wraps</b>
+            <span class="zoom-hint">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+              <span data-i18n="menu_zoom">Zoom</span>
+            </span>
+          </div>
+        </div>
+        <div class="menu-card" data-lightbox="./assets/menu-2.png">
+          <img src="./assets/menu-2.png" alt="UMB Fried Chicken menu — fries, wings, boxes, family meals and smash burgers with prices" loading="lazy">
+          <div class="cap">
+            <b data-i18n="menu_card2">Boxes, Meals & Smash Burgers</b>
+            <span class="zoom-hint">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+              <span data-i18n="menu_zoom">Zoom</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="menu-note reveal" data-i18n="menu_note">Prices and items shown are exactly as published by UMB Fried Chicken and may be updated by the restaurant from time to time.</p>
+  </div>
+</section>
+
+<div class="ticket-divider on-brown"></div>
+
+<!-- ================= ABOUT ================= -->
+<section class="about-section section-pad" id="about">
+  <div class="pegboard on-dark"></div>
+  <div class="wrap about-grid">
+    <div class="about-copy reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 13c0-4 3-8 8-8s8 4 8 8-3 8-8 8-8-4-8-8z"/></svg>
+        <span data-i18n="about_eyebrow">About UMB</span>
+      </span>
+      <h2 style="margin-top:16px; color:var(--yellow);" data-i18n="about_h2">Fried chicken, done UMB style</h2>
+      <p data-i18n="about_p">UMB Fried Chicken is all about one thing: getting the crunch right. A youthful, fast-paced spot built for anyone chasing a proper crispy chicken sandwich, box or smash burger — made fresh, served fast, no shortcuts on taste.</p>
+    </div>
+    <div class="stamp-grid reveal">
+      <div class="stamp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 6 6 9 6 12a6 6 0 0012 0c0-3-2-6-6-10z"/></svg>
+        <b data-i18n="about_stamp1">Fresh<br>Chicken</b>
+      </div>
+      <div class="stamp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 13c0-4 3-8 8-8s8 4 8 8-3 8-8 8-8-4-8-8z"/><path d="M9 12c1-1 2-1 3 0s2 1 3 0"/></svg>
+        <b data-i18n="about_stamp2">Crispy<br>Texture</b>
+      </div>
+      <div class="stamp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        <b data-i18n="about_stamp3">Great<br>Taste</b>
+      </div>
+      <div class="stamp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <b data-i18n="about_stamp4">Quality<br>Ingredients</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticket-divider on-pale" style="transform:rotate(180deg)"></div>
+
+<!-- ================= LOCATIONS ================= -->
+<section class="locations-section section-pad" id="locations">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span data-i18n="loc_eyebrow">3 Branches</span>
+      </span>
+      <h2 data-i18n="loc_h2">Find Your Nearest UMB</h2>
+      <p data-i18n="loc_p">Three UMB branches across Alexandria — pick the closest one and get instant directions.</p>
+    </div>
+
+    <div class="branch-grid" id="branchGrid"></div>
+
+    <div class="map-wrap reveal">
+      <div class="map-tabs" id="mapTabs"></div>
+      <div class="map-frame-holder" id="mapFrameHolder"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery-section section-pad" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span data-i18n="gal_eyebrow">UMB Gallery</span>
+      </span>
+      <h2 data-i18n="gal_h2">UMB Gallery</h2>
+      <p data-i18n="gal_p">A look at the food, the crunch and the branches. More photos are added regularly.</p>
+    </div>
+    <div class="gallery-top-row" id="galleryTopRow"></div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- ================= INFO STRIP ================= -->
+<section class="info-section">
+  <div class="wrap info-strip reveal">
+    <div class="info-rating">
+      <div class="stars">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+      </div>
+      <div>
+        <div class="num">4.3<span style="font-size:15px; color:var(--yellow-pale); opacity:.6;">/5</span></div>
+        <div class="sub" data-i18n="info_reviews">400+ GOOGLE REVIEWS</div>
+      </div>
+    </div>
+    <div class="info-facts">
+      <div class="info-fact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 13c0-4 3-8 8-8s8 4 8 8-3 8-8 8-8-4-8-8z"/></svg>
+        <div><div class="k" data-i18n="info_k_category">Category</div><div class="v" data-i18n="info_v_category">Chicken Restaurant</div></div>
+      </div>
+      <div class="info-fact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div><div class="k" data-i18n="info_k_location">Location</div><div class="v" data-i18n="info_v_location">Borg El Arab, Alexandria</div></div>
+      </div>
+      <div class="info-fact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div><div class="k" data-i18n="info_k_hours">Hours</div><div class="v" data-i18n="info_v_hours">Open Until 2:30 AM</div></div>
+      </div>
+      <div class="info-fact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        <div><div class="k" data-i18n="info_k_price">Average Price</div><div class="v" data-i18n="info_v_price">E£1–200 / person</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact-section section-pad" id="contact">
+  <div class="pegboard"></div>
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="eyebrow" style="background:var(--brown); color:var(--yellow);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
+        <span data-i18n="contact_eyebrow">Get in Touch</span>
+      </span>
+      <h2 style="margin-top:16px;" data-i18n="contact_h2">Craving UMB already?</h2>
+      <p data-i18n="contact_p">Call your nearest branch directly — our team is ready to help.</p>
+      <div class="contact-phone">
+        <span class="num">02 21294394</span>
+        <a href="tel:0221294394" class="btn btn-dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
+          <span data-i18n="contact_btn_call">Call UMB</span>
+        </a>
+      </div>
+      <!-- Social icons -->
+      <div class="social-row">
+        <a href="https://www.instagram.com/umb_friedchicken" class="social-icon" id="instaLinkMain" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://wa.me/201202714222" class="social-icon" id="whatsappLinkMain" aria-label="WhatsApp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 004.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.17 3.03 14.69 2 12.04 2zm0 18.14a8.2 8.2 0 01-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.2 8.2 0 01-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.82c0 4.55-3.7 8.23-8.25 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.38-1.99-1.22-.74-.65-1.24-1.46-1.38-1.7-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.24-.4.08-.16.04-.3-.02-.42-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.58 4.11 3.62.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/umbfriedchicken" class="social-icon" id="facebookLinkMain" aria-label="Facebook" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.16 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22c4.78-.78 8.44-4.94 8.44-9.94z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="contact-card reveal">
+      <div class="row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 13c0-4 3-8 8-8s8 4 8 8-3 8-8 8-8-4-8-8z"/></svg>
+        <div><div class="k" data-i18n="cc_k_restaurant">Restaurant</div><div class="v">UMB Fried Chicken</div></div>
+      </div>
+      <div class="row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
+        <div><div class="k" data-i18n="cc_k_phone">Phone</div><div class="v">02 21294394</div></div>
+      </div>
+      <div class="row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div><div class="k" data-i18n="cc_k_hours">Hours</div><div class="v" data-i18n="cc_v_hours">Open Until 2:30 AM</div></div>
+      </div>
+      <div class="row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div><div class="k" data-i18n="cc_k_area">Main Area</div><div class="v" data-i18n="cc_v_area">Borg El Arab, Alexandria, Egypt</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="./assets/logo.png" alt="UMB Fried Chicken logo">
+        <span>UMB Fried Chicken</span>
+      </div>
+      <p class="blurb" data-i18n="footer_blurb">Crispy, juicy fried chicken and smash burgers, made fast for a new generation — three branches across Alexandria, Egypt.</p>
+      <div class="social-row">
+        <a href="https://www.instagram.com/umb_friedchicken" class="social-icon" id="instaLinkFooter" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://wa.me/201202714222" class="social-icon" id="whatsappLinkFooter" aria-label="WhatsApp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 004.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.17 3.03 14.69 2 12.04 2zm0 18.14a8.2 8.2 0 01-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.2 8.2 0 01-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.82c0 4.55-3.7 8.23-8.25 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.38-1.99-1.22-.74-.65-1.24-1.46-1.38-1.7-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.24-.4.08-.16.04-.3-.02-.42-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.58 4.11 3.62.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/umbfriedchicken" class="social-icon" id="facebookLinkFooter" aria-label="Facebook" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.16 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22c4.78-.78 8.44-4.94 8.44-9.94z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4 data-i18n="footer_h_quick">Quick Links</h4>
+      <ul>
+        <li><a href="#home" data-i18n="nav_home">Home</a></li>
+        <li><a href="#about" data-i18n="nav_about">About</a></li>
+        <li><a href="#gallery" data-i18n="nav_gallery">Gallery</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="footer_h_explore">Explore</h4>
+      <ul>
+        <li><a href="#menu" data-i18n="nav_menu">Menu</a></li>
+        <li><a href="#locations" data-i18n="nav_locations">Locations</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="footer_h_contact">Contact</h4>
+      <ul>
+        <li><a href="tel:0221294394">02 21294394</a></li>
+        <li><a href="#locations" data-i18n="info_v_location">Borg El Arab, Alexandria</a></li>
+        <li><a href="#contact" data-i18n="footer_get_in_touch">Get in touch</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span data-i18n="footer_rights">© 2026 UMB Fried Chicken. All Rights Reserved.</span>
+    <span data-i18n="hero_tagline">Crispy. Juicy. Unforgettable.</span>
+  </div>
+</footer>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <img src="" alt="Zoomed image" id="lightboxImg" style="display:none;">
+  <video src="" id="lightboxVideo" controls style="display:none;"></video>
+</div>
+
+<script>
+/* =====================================================================
+   EDIT ZONE — update branch info, map addresses and gallery photos here
+   ===================================================================== */
+
+// ---- BRANCHES: edit name / address / phone / hours / maps link freely ----
+const BRANCHES = [
+  {
+    name: "UMB — Borg El Arab",
+    name_ar: "يو إم بي — برج العرب",
+    address: "Borg El Arab, Alexandria, Egypt",
+    address_ar: "برج العرب، الإسكندرية، مصر",
+    phone: "02 21294394",
+    hours: "Open until 2:30 AM",
+    hours_ar: "مفتوح حتى 2:30 صباحاً",
+    mapsQuery: "UMB Fried Chicken Borg El Arab Alexandria Egypt",
+    confirmed: true
+  },
+  {
+    name: "UMB — Agami",
+    name_ar: "يو إم بي — أجاميّ",
+    address: "Agami, Alexandria, Egypt",
+    address_ar: "أجاميّ، الإسكندرية، مصر",
+    phone: "02 21294394",
+    hours: "Open until 2:30 AM",
+    hours_ar: "مفتوح حتى 2:30 صباحاً",
+    mapsQuery: "31.1277969,29.7812565",
+    confirmed: true
+  },
+  {
+    name: "UMB — Smouha",
+    name_ar: "يو إم بي — سموحة",
+    address: "Smouha, Alexandria, Egypt",
+    address_ar: "سموحة، الإسكندرية، مصر",
+    phone: "02 21294394",
+    hours: "Open until 2:30 AM",
+    hours_ar: "مفتوح حتى 2:30 صباحاً",
+    mapsQuery: "31.207758,29.949743",
+    confirmed: true
+  }
+];
+
+// ---- GALLERY TOP ROW: image | video | image ----
+const GALLERY_TOP = [
+  { type:"image", src:"./assets/im-1.png",  label:"Signature Sandwich", label_ar:"الساندوتش المميز" },
+  { type:"video", src:"./assets/video.mp4", label:"Watch UMB in Action", label_ar:"شاهد UMB أثناء التحضير" },
+  { type:"image", src:"./assets/im-2.png", alt:"UMB Fried Chicken restaurant storefront", label:"Restaurant Exterior", label_ar:"واجهة المطعم" }
+];
+
+// ---- GALLERY GRID: 8 equal photos below ----
+const GALLERY = [
+  { type:"image", src:"./assets/im-3.png", alt:"UMB fried chicken close-up", label:"Fresh & Crispy", label_ar:"طازة ومقرمشة" },
+  { type:"image", src:"./assets/im-4.png", alt:"UMB fried chicken close-up", label:"Fresh & Crispy", label_ar:"طازة ومقرمشة" },
+  { type:"image", src:"./assets/im-5.png", alt:"UMB fried chicken close-up", label:"Fresh & Crispy", label_ar:"طازة ومقرمشة" },
+  { type:"image", src:"./assets/im-6.png", alt:"UMB fried chicken close-up", label:"Fresh & Crispy", label_ar:"طازة ومقرمشة" },
+  { type:"image", src:"./assets/im-7.png", alt:"UMB fried chicken close-up", label:"Fresh & Crispy", label_ar:"طازة ومقرمشة" },
+  { type:"image", src:"./assets/im-8.png", alt:"UMB fried chicken close-up", label:"Fresh & Crispy", label_ar:"طازة ومقرمشة" },
+  { type:"image", src:"./assets/im-9.png", alt:"UMB fried chicken close-up", label:"Fresh & Crispy", label_ar:"طازة ومقرمشة" },
+  { type:"image", src:"./assets/im-10.png", alt:"UMB fried chicken close-up", label:"Fresh & Crispy", label_ar:"طازة ومقرمشة" },
+];
+
+/* =====================================================================
+   TRANSLATIONS
+   ===================================================================== */
+const I18N = {
+  nav_home: {en:"Home", ar:"الرئيسية"},
+  nav_menu: {en:"Menu", ar:"المنيو"},
+  nav_about: {en:"About", ar:"عن المطعم"},
+  nav_locations: {en:"Locations", ar:"الفروع"},
+  nav_gallery: {en:"Gallery", ar:"معرض الصور"},
+  nav_contact: {en:"Contact", ar:"تواصل معنا"},
+  nav_order: {en:"Order", ar:"اطلب دلوقتي"},
+  hero_eyebrow: {en:"Alexandria, Egypt", ar:"الإسكندرية، مصر"},
+  hero_h1_accent: {en:"FRIED CHICKEN", ar:"فرايد تشيكن"},
+  hero_tagline: {en:"Crispy. Juicy. Unforgettable.", ar:"قرمشة. عصارة. طعم مينسيش."},
+  hero_cta_menu: {en:"Menu", ar:"المنيو"},
+  hero_cta_branch: {en:"Find a Branch", ar:"دور على أقرب فرع"},
+  hero_badge_rating: {en:"4.3★ GOOGLE RATING", ar:"تقييم جوجل 4.3★"},
+  hero_badge_reviews: {en:"400+ REVIEWS", ar:"+400 تقييم"},
+  hero_badge_branches: {en:"3 BRANCHES IN ALEXANDRIA", ar:"3 فروع في الإسكندرية"},
+  hero_chip_crisp: {en:"Always Crispy", ar:"مقرمش دايماً"},
+  hero_scroll: {en:"Scroll", ar:"إنزل تحت"},
+  menu_eyebrow: {en:"Official Menu", ar:"المنيو الرسمي"},
+  menu_h2: {en:"Our Menu", ar:"منيو المطعم"},
+  menu_p: {en:"The full, official UMB menu — straight from the restaurant. Tap either card to view it up close.", ar:"منيو UMB كامل وأصلي زي ما هو في المطعم. اضغط على أي كارت عشان تكبّر الصورة."},
+  menu_board_label: {en:"UMB · MENU BOARD", ar:"يو إم بي · لوحة المنيو"},
+  menu_board_prices: {en:"PRICES IN EGP", ar:"الأسعار بالجنيه المصري"},
+  menu_card1: {en:"Chicken Sandwiches & Wraps", ar:"ساندوتشات ولفائف الفراخ"},
+  menu_card2: {en:"Boxes, Meals & Smash Burgers", ar:"البوكسات والوجبات والسماش برجر"},
+  menu_zoom: {en:"Zoom", ar:"تكبير"},
+  menu_note: {en:"Prices and items shown are exactly as published by UMB Fried Chicken and may be updated by the restaurant from time to time.", ar:"الأسعار والأصناف الموضحة زي ما هي منشورة من UMB Fried Chicken وممكن تتحدث من وقت للتاني."},
+  about_eyebrow: {en:"About UMB", ar:"عن UMB"},
+  about_h2: {en:"Fried chicken, done UMB style", ar:"فراخ مقرمشة بأسلوب UMB"},
+  about_p: {en:"UMB Fried Chicken is all about one thing: getting the crunch right. A youthful, fast-paced spot built for anyone chasing a proper crispy chicken sandwich, box or smash burger — made fresh, served fast, no shortcuts on taste.", ar:"UMB Fried Chicken بيهتم بحاجة واحدة بس: القرمشة تبقى مظبوطة. مكان شبابي وسريع لكل حد بيدور على ساندوتش فراخ مقرمش، بوكس، أو سماش برجر — طازة وسريعة من غير أي مجاملة في الطعم."},
+  about_stamp1: {en:"Fresh<br>Chicken", ar:"فراخ<br>طازة"},
+  about_stamp2: {en:"Crispy<br>Texture", ar:"قوام<br>مقرمش"},
+  about_stamp3: {en:"Great<br>Taste", ar:"طعم<br>رائع"},
+  about_stamp4: {en:"Quality<br>Ingredients", ar:"مكونات<br>عالية الجودة"},
+  loc_eyebrow: {en:"3 Branches", ar:"3 فروع"},
+  loc_h2: {en:"Find Your Nearest UMB", ar:"دور على أقرب فرع UMB"},
+  loc_p: {en:"Three UMB branches across Alexandria — pick the closest one and get instant directions.", ar:"3 فروع لـ UMB في الإسكندرية — اختار الأقرب ليك واحصل على الاتجاهات فوراً."},
+  branch_directions: {en:"Get Directions", ar:"احصل على الاتجاهات"},
+  branch_soon: {en:"Directions coming soon", ar:"الاتجاهات هتكون متاحة قريباً"},
+  branch_label: {en:"BRANCH", ar:"فرع"},
+  branch_coming: {en:"COMING SOON", ar:"قريباً"},
+  gal_eyebrow: {en:"UMB Gallery", ar:"معرض UMB"},
+  gal_h2: {en:"UMB Gallery", ar:"معرض UMB"},
+  gal_p: {en:"A look at the food, the crunch and the branches. More photos are added regularly.", ar:"نظرة على الأكل والقرمشة والفروع. بنضيف صور جديدة بإستمرار."},
+  info_reviews: {en:"400+ GOOGLE REVIEWS", ar:"+400 تقييم على جوجل"},
+  info_k_category: {en:"Category", ar:"النوع"},
+  info_v_category: {en:"Chicken Restaurant", ar:"مطعم فراخ"},
+  info_k_location: {en:"Location", ar:"الموقع"},
+  info_v_location: {en:"Borg El Arab, Alexandria", ar:"برج العرب، الإسكندرية"},
+  info_k_hours: {en:"Hours", ar:"مواعيد العمل"},
+  info_v_hours: {en:"Open Until 2:30 AM", ar:"مفتوح حتى 2:30 صباحاً"},
+  info_k_price: {en:"Average Price", ar:"متوسط السعر"},
+  info_v_price: {en:"E£1–200 / person", ar:"1–200 جنيه للفرد"},
+  contact_eyebrow: {en:"Get in Touch", ar:"تواصل معانا"},
+  contact_h2: {en:"Craving UMB already?", ar:"مشتاق لـ UMB؟"},
+  contact_p: {en:"Call your nearest branch directly — our team is ready to help.", ar:"اتصل بأقرب فرع ليك على طول — فريقنا جاهز يساعدك."},
+  contact_btn_call: {en:"Call UMB", ar:"اتصل بـ UMB"},
+  cc_k_restaurant: {en:"Restaurant", ar:"المطعم"},
+  cc_k_phone: {en:"Phone", ar:"التليفون"},
+  cc_k_hours: {en:"Hours", ar:"مواعيد العمل"},
+  cc_v_hours: {en:"Open Until 2:30 AM", ar:"مفتوح حتى 2:30 صباحاً"},
+  cc_k_area: {en:"Main Area", ar:"المنطقة الرئيسية"},
+  cc_v_area: {en:"Borg El Arab, Alexandria, Egypt", ar:"برج العرب، الإسكندرية، مصر"},
+  footer_blurb: {en:"Crispy, juicy fried chicken and smash burgers, made fast for a new generation — three branches across Alexandria, Egypt.", ar:"فراخ مقرمشة وعصارة وسماش برجر، سريعة لجيل جديد — 3 فروع في الإسكندرية، مصر."},
+  footer_h_quick: {en:"Quick Links", ar:"روابط سريعة"},
+  footer_h_explore: {en:"Explore", ar:"استكشف"},
+  footer_h_contact: {en:"Contact", ar:"تواصل"},
+  footer_get_in_touch: {en:"Get in touch", ar:"تواصل معانا"},
+  footer_rights: {en:"© 2026 UMB Fried Chicken. All Rights Reserved.", ar:"© 2026 يو إم بي فرايد تشيكن. جميع الحقوق محفوظة."}
+};
+
+let currentLang = "en";
+
+function applyTranslations(){
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    const entry = I18N[key];
+    if(entry){
+      el.innerHTML = entry[currentLang];
+    }
+  });
+  document.querySelectorAll(".ar-toggle-font").forEach(el => {
+    el.style.fontFamily = currentLang === "ar" ? "'Cairo','Manrope',sans-serif" : "'Manrope',sans-serif";
+  });
+  document.getElementById("langBtnDesktopLabel").textContent = currentLang === "en" ? "AR" : "EN";
+  document.getElementById("langBtnMobileLabel").textContent = currentLang === "en" ? "AR" : "EN";
+  document.documentElement.setAttribute("lang", currentLang);
+  renderBranches();
+  renderGallery();
+}
+
+function toggleLang(){
+  currentLang = currentLang === "en" ? "ar" : "en";
+  applyTranslations();
+}
+document.getElementById("langBtnDesktop").addEventListener("click", toggleLang);
+document.getElementById("langBtnMobile").addEventListener("click", toggleLang);
+
+/* ===================================================================== */
+
+// Render branch cards
+const pinSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
+const phoneSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>`;
+const clockSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>`;
+
+const branchGrid = document.getElementById('branchGrid');
+function renderBranches(){
+  branchGrid.innerHTML = "";
+  BRANCHES.forEach((b, i) => {
+    const card = document.createElement('div');
+    card.className = 'branch-card reveal in' + (b.confirmed ? '' : ' placeholder');
+    const name = currentLang === "ar" && b.name_ar ? b.name_ar : b.name;
+    const address = currentLang === "ar" && b.address_ar ? b.address_ar : b.address;
+    const hours = currentLang === "ar" && b.hours_ar ? b.hours_ar : b.hours;
+    const stubLabel = b.confirmed
+      ? (I18N.branch_label[currentLang] + " " + String(i+1).padStart(2,'0'))
+      : I18N.branch_coming[currentLang];
+    const dirText = b.confirmed ? I18N.branch_directions[currentLang] : I18N.branch_soon[currentLang];
+    card.innerHTML = `
+      <div class="branch-stub ${b.confirmed ? '' : 'tbd'}">
+        <span>${stubLabel}</span>
+        <span>UMB · 0${i+1}</span>
+      </div>
+      <div class="branch-body">
+        <div class="branch-top">
+          <div class="branch-icon">${pinSvg}</div>
+          <h3>${name}</h3>
+        </div>
+        <div class="branch-row">${pinSvg}<span>${address}</span></div>
+        <div class="branch-row">${phoneSvg}<span>${b.phone}</span></div>
+        <div class="branch-row">${clockSvg}<span>${hours}</span></div>
+        ${b.confirmed
+          ? `<a class="btn btn-dark btn-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(b.mapsQuery)}">
+               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M9 18l6-6-6-6"/></svg>
+               ${dirText}
+             </a>`
+          : `<button class="btn btn-ghost-dark btn-sm" disabled>${dirText}</button>`
+        }
+      </div>
+    `;
+    branchGrid.appendChild(card);
+  });
+}
+
+// Map tabs + iframe
+const mapTabs = document.getElementById('mapTabs');
+const mapFrameHolder = document.getElementById('mapFrameHolder');
+
+function renderMap(index){
+  const b = BRANCHES[index];
+  mapTabs.querySelectorAll('.map-tab').forEach((t,i) => t.classList.toggle('active', i===index));
+  if(b.confirmed && b.mapsQuery){
+    mapFrameHolder.innerHTML = `<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps?q=${encodeURIComponent(b.mapsQuery)}&output=embed" allowfullscreen title="Map to ${b.name}"></iframe>`;
+  } else {
+    mapFrameHolder.innerHTML = `<div class="map-empty">
+      ${pinSvg.replace('width="19" height="19"','width="34" height="34"')}
+      <div>Map for ${b.name} will appear here once the address is added.</div>
+    </div>`;
+  }
+}
+
+BRANCHES.forEach((b, i) => {
+  const tab = document.createElement('button');
+  tab.className = 'map-tab' + (i===0 ? ' active' : '');
+  tab.textContent = b.name;
+  tab.addEventListener('click', () => renderMap(i));
+  mapTabs.appendChild(tab);
+});
+renderMap(0);
+
+// Gallery
+const galleryTopRow = document.getElementById('galleryTopRow');
+const galleryGrid = document.getElementById('galleryGrid');
+const playSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polygon points="6 3 20 12 6 21 6 3"/></svg>`;
+
+function buildGalleryItem(g, extraClass){
+  const item = document.createElement('div');
+  const label = currentLang === "ar" && g.label_ar ? g.label_ar : g.label;
+  if(g.type === 'image'){
+    item.className = 'gallery-item reveal in' + (extraClass ? ' ' + extraClass : '');
+    item.setAttribute('data-lightbox', g.src);
+    item.setAttribute('data-lightbox-type', 'image');
+    item.innerHTML = `<img src="${g.src}" alt="${g.alt || ''}" loading="lazy"><div class="g-overlay">${label}</div>`;
+  } else if(g.type === 'video'){
+    item.className = 'gallery-item reveal in video-tile' + (extraClass ? ' ' + extraClass : '');
+    item.setAttribute('data-lightbox', g.src);
+    item.setAttribute('data-lightbox-type', 'video');
+    item.innerHTML = `<div class="play-badge">${playSvg}<span>${currentLang==='ar' ? 'فيديو' : 'VIDEO'}</span></div><video src="${g.src}" muted loop playsinline autoplay></video><div class="g-overlay">${label}</div>`;
+  } else {
+    item.className = 'gallery-item empty reveal in' + (extraClass ? ' ' + extraClass : '');
+    item.innerHTML = label.replace(/\n/g,'<br>');
+  }
+  return item;
+}
+
+function renderGallery(){
+  galleryTopRow.innerHTML = "";
+  GALLERY_TOP.forEach((g, idx) => {
+    const cls = g.type === 'video' ? 'gallery-video-slot' : '';
+    galleryTopRow.appendChild(buildGalleryItem(g, cls));
+  });
+  galleryGrid.innerHTML = "";
+  GALLERY.forEach(g => galleryGrid.appendChild(buildGalleryItem(g, '')));
+}
+
+// Lightbox (menu + gallery + video)
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxVideo = document.getElementById('lightboxVideo');
+document.addEventListener('click', (e) => {
+  const trigger = e.target.closest('[data-lightbox]');
+  if(trigger){
+    const type = trigger.getAttribute('data-lightbox-type');
+    const src = trigger.getAttribute('data-lightbox');
+    if(type === 'video'){
+      lightboxVideo.src = src;
+      lightboxVideo.style.display = 'block';
+      lightboxImg.style.display = 'none';
+      lightboxVideo.play().catch(()=>{});
+    } else {
+      lightboxImg.src = src;
+      lightboxImg.style.display = 'block';
+      lightboxVideo.style.display = 'none';
+      lightboxVideo.pause();
+    }
+    lightbox.classList.add('open');
+  }
+});
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  lightboxVideo.pause();
+}
+document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightbox(); });
+
+// Sticky header state
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive:true });
+
+// Mobile menu
+const burgerBtn = document.getElementById('burgerBtn');
+const mobilePanel = document.getElementById('mobilePanel');
+burgerBtn.addEventListener('click', () => {
+  const open = mobilePanel.classList.toggle('open');
+  burgerBtn.classList.toggle('open', open);
+  burgerBtn.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('.mobile-panel a').forEach(a => a.addEventListener('click', () => {
+  mobilePanel.classList.remove('open');
+  burgerBtn.classList.remove('open');
+}));
+
+// Scroll reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); } });
+}, { threshold:0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Initial render
+applyTranslations();
+</script>
+</body>
+</html>
